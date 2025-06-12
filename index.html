@@ -4,56 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Webtools – SEO Toolkit: Best free SEO tools for bloggers and marketers. Optimize blog posts, generate meta tags, analyze keywords, and more with our AI-powered SEO suite.">
-    <meta name="keywords" content="free SEO tools, meta tag generator, blogging tools, keyword analyzer, content optimization, robots.txt generator, sitemap generator, URL encoder, HTML cleaner, text formatter, JSON formatter, web tools">
+    <meta name="keywords" content="free SEO tools, meta tag generator, blogging tools, keyword analyzer, content optimization, robots.txt generator, sitemap generator, URL encoder, HTML cleaner, text formatter, JSON formatter, web tools, SEO suite, Prompt Minds">
     <title>Webtools – SEO Toolkit | Free SEO & Blogging Tools</title>
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'%3E%3C/path%3E%3Cpath d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'%3E%3C/path%3E%3C/svg%3E" type="image/svg+xml">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600;700&display=swap');
+        /* Import Poppins and Inter fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
+        /* Theme Variables */
         :root {
-            /* Dark Theme Defaults */
-            --main-bg: #0d0f14;
-            --card-bg-primary: #12151a;
-            --card-bg-secondary: #1c222d;
-            --text-color: #ffffff;
-            --secondary-text-color: #e0e0e0;
-            --glow-color: #007bff; /* Blue */
-            --cta-button-bg: #00aaff;
-            --cta-button-text: #ffffff;
-            --cta-button-shadow: rgba(0, 170, 255, 0.6);
-            --header-bg: rgba(13, 15, 20, 0.9);
-            --input-bg: #2d3035;
-            --input-border: #4a4f56;
-            --input-text: #e0e0e0;
-            --placeholder-color: #a0a0a0;
-            --code-bg: #2a2d32;
-            --code-text: #b3d9ff;
-            --link-hover-color: #64bffb;
-            --shadow-primary: rgba(0, 0, 0, 0.5);
+            /* Dark Theme (Default) */
+            --main-bg: #0A0C10; /* Very dark blue-gray */
+            --card-bg-primary: #12161D; /* Slightly lighter card base */
+            --card-bg-secondary: #1F2531; /* Accent/hover card background */
+            --text-color: #E0E6F0; /* Soft white */
+            --secondary-text-color: #A0A9B8; /* Light gray-blue for descriptions/labels */
+            --glow-color: #00E6FF; /* Vibrant electric cyan for primary glow */
+            --cta-button-bg: #00A3CC; /* Deeper cyan-blue for CTA */
+            --cta-button-text: #FFFFFF;
+            --cta-button-shadow: rgba(0, 230, 255, 0.6); /* Matching glow shadow */
+            --header-bg: rgba(10, 12, 16, 0.9);
+            --input-bg: #1A1F28; /* Darker input fields */
+            --input-border: #3A4557; /* Subtle input border */
+            --input-text: #E0E6F0;
+            --placeholder-color: #6C7D99;
+            --code-bg: #161A22; /* Code block background */
+            --code-text: #90D3FF; /* Light blue code text */
+            --link-hover-color: #6CF0FF; /* Brighter link hover */
+            --shadow-primary: rgba(0, 0, 0, 0.7); /* Stronger shadows */
+            --error-color: #FF6B6B; /* Red for errors */
         }
 
         .light-theme {
-            /* Light Theme Overrides */
-            --main-bg: #ffffff;
-            --card-bg-primary: #f2f2f2;
-            --card-bg-secondary: #e0e0e0;
-            --text-color: #000000;
-            --secondary-text-color: #333333;
-            --glow-color: #2196f3; /* Softer Blue */
-            --cta-button-bg: #007bff;
-            --cta-button-text: #ffffff;
-            --cta-button-shadow: rgba(33, 150, 243, 0.4);
-            --header-bg: rgba(255, 255, 255, 0.9);
-            --input-bg: #ffffff;
-            --input-border: #ccc;
-            --input-text: #000000;
-            --placeholder-color: #777;
-            --code-bg: #e9ecef;
-            --code-text: #0056b3;
+            /* Light Theme */
+            --main-bg: #F5F7FA; /* Very light gray-blue */
+            --card-bg-primary: #FFFFFF; /* Pure white cards */
+            --card-bg-secondary: #E8EEF4; /* Slightly darker light gray-blue for accents */
+            --text-color: #1A1A1A; /* Dark gray */
+            --secondary-text-color: #4A4A4A; /* Medium gray */
+            --glow-color: #007BFF; /* Classic blue for subtle glow */
+            --cta-button-bg: #0066CC; /* Darker blue for CTA */
+            --cta-button-text: #FFFFFF;
+            --cta-button-shadow: rgba(0, 123, 255, 0.3);
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --input-bg: #FFFFFF;
+            --input-border: #CED4DA;
+            --input-text: #1A1A1A;
+            --placeholder-color: #888;
+            --code-bg: #EAEFF4;
+            --code-text: #0056B3;
             --link-hover-color: #0056b3;
-            --shadow-primary: rgba(0, 0, 0, 0.1);
+            --shadow-primary: rgba(0, 0, 0, 0.15);
+            --error-color: #DC3545;
         }
 
         /* Base Styles */
@@ -68,18 +72,20 @@
         }
 
         body {
-            font-family: 'Inter', 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--main-bg);
             color: var(--text-color);
-            transition: background-color 0.4s ease, color 0.4s ease;
+            transition: background-color 0.5s ease, color 0.5s ease;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
             color: var(--text-color);
-            transition: color 0.4s ease;
+            transition: color 0.5s ease;
         }
 
         a {
@@ -98,34 +104,40 @@
             top: 0;
             width: 100%;
             background-color: var(--header-bg);
-            padding: 1.2rem 2rem;
+            padding: 1rem 2.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
             box-shadow: 0 4px 30px var(--shadow-primary);
-            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.05); /* Subtle separation */
+            transition: background-color 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
         }
 
         .header .brand-title {
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 2rem;
+            font-weight: 800; /* Extra bold */
             color: var(--text-color);
-            text-shadow: 0 0 10px var(--glow-color);
-            transition: text-shadow 0.4s ease;
+            text-shadow: 0 0 15px var(--glow-color), 0 0 25px rgba(0, 230, 255, 0.4); /* Stronger neon glow */
+            transition: text-shadow 0.5s ease;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 3rem;
         }
 
         .nav-links a {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
             position: relative;
-            padding-bottom: 0.3rem;
+            padding-bottom: 0.5rem;
+            color: var(--secondary-text-color); /* Default to secondary text */
+        }
+
+        .nav-links a:hover {
+            color: var(--text-color); /* White on hover */
         }
 
         .nav-links a::after {
@@ -134,11 +146,12 @@
             left: 0;
             bottom: 0;
             width: 100%;
-            height: 2px;
+            height: 3px; /* Thicker underline */
             background-color: var(--glow-color);
             transform: scaleX(0);
             transform-origin: bottom right;
-            transition: transform 0.3s ease-out, background-color 0.4s ease;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.5s ease;
+            box-shadow: 0 0 10px var(--glow-color); /* Neon glow effect */
         }
 
         .nav-links a:hover::after {
@@ -149,27 +162,34 @@
         .theme-toggle-btn {
             background: none;
             border: none;
-            font-size: 1.6rem;
+            font-size: 1.8rem; /* Larger icon */
             cursor: pointer;
-            color: var(--text-color);
-            transition: color 0.3s ease;
-            padding: 0.5rem;
-            border-radius: 5px;
+            color: var(--secondary-text-color);
+            transition: color 0.3s ease, transform 0.2s ease;
+            padding: 0.6rem;
+            border-radius: 50%; /* Circular button */
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 0 0 transparent; /* Initial shadow */
         }
         .theme-toggle-btn:hover {
             color: var(--glow-color);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--glow-color); /* Glow on hover */
         }
 
         .hamburger {
             display: none;
-            font-size: 2rem;
+            font-size: 2.2rem; /* Larger hamburger */
             cursor: pointer;
             background: none;
             border: none;
             color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+        .hamburger:hover {
+            color: var(--glow-color);
         }
 
         /* Hero Section */
@@ -180,14 +200,14 @@
             align-items: center;
             min-height: calc(100vh - 80px); /* Adjust for header height */
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
             background: linear-gradient(45deg, var(--main-bg) 0%, var(--card-bg-secondary) 50%, var(--main-bg) 100%);
             background-size: 400% 400%;
-            animation: gradient-anim 10s ease infinite;
+            animation: gradient-anim 15s ease infinite; /* Slower, smoother animation */
             position: relative;
             overflow: hidden;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            transition: background 0.4s ease, border-color 0.4s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: background 0.5s ease, border-color 0.5s ease;
         }
 
         @keyframes gradient-anim {
@@ -197,12 +217,12 @@
         }
 
         .hero-icon {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 1.5rem;
+            width: 100px; /* Larger icon */
+            height: 100px;
+            margin-bottom: 2rem;
             color: var(--glow-color);
-            filter: drop-shadow(0 0 15px var(--glow-color));
-            transition: color 0.4s ease, filter 0.4s ease;
+            filter: drop-shadow(0 0 20px var(--glow-color)); /* Stronger glow */
+            transition: color 0.5s ease, filter 0.5s ease;
         }
         .hero-icon svg {
             width: 100%;
@@ -210,102 +230,108 @@
         }
 
         .hero-section h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 15px var(--glow-color);
+            font-size: 3.8rem; /* Larger heading */
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 20px var(--glow-color), 0 0 30px rgba(0, 230, 255, 0.5); /* Intense glow */
             line-height: 1.2;
-            transition: text-shadow 0.4s ease;
+            max-width: 900px;
+            transition: text-shadow 0.5s ease;
         }
 
         .hero-section p {
-            font-size: 1.4rem;
+            font-size: 1.5rem; /* Larger subheading */
             color: var(--secondary-text-color);
-            max-width: 800px;
-            margin-bottom: 2.5rem;
-            transition: color 0.4s ease;
+            max-width: 850px;
+            margin-bottom: 3rem;
+            transition: color 0.5s ease;
+            font-weight: 300; /* Lighter font weight */
         }
 
         .cta-button {
             background-color: var(--cta-button-bg);
             color: var(--cta-button-text);
-            padding: 1rem 2.5rem;
+            padding: 1.2rem 3rem; /* Larger padding */
             border: none;
-            border-radius: 8px;
-            font-size: 1.3rem;
+            border-radius: 10px; /* More rounded */
+            font-size: 1.4rem; /* Larger font */
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 0 20px var(--cta-button-shadow);
+            box-shadow: 0 0 25px var(--cta-button-shadow); /* Stronger initial glow */
             transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+            letter-spacing: 0.05em; /* Spaced out text */
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 30px var(--cta-button-shadow), 0 0 50px var(--cta-button-shadow);
+            transform: translateY(-4px); /* More pronounced lift */
+            box-shadow: 0 0 40px var(--cta-button-shadow), 0 0 60px var(--cta-button-shadow); /* Even stronger glow on hover */
         }
 
         /* Tools Section */
         .tools-section {
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             background-color: var(--main-bg);
-            transition: background-color 0.4s ease;
+            transition: background-color 0.5s ease;
         }
 
         .tools-section h2 {
             text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
-            text-shadow: 0 0 10px var(--glow-color);
-            transition: text-shadow 0.4s ease;
+            font-size: 3rem; /* Larger heading */
+            margin-bottom: 4rem;
+            text-shadow: 0 0 15px var(--glow-color); /* Heading glow */
+            transition: text-shadow 0.5s ease;
+            font-weight: 800;
         }
 
         .tool-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            max-width: 1300px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Wider min-width */
+            gap: 2.5rem; /* More space between cards */
+            max-width: 1400px; /* Wider grid */
             margin: 0 auto;
         }
 
         .tool-card {
             background-color: var(--card-bg-primary);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px var(--shadow-primary);
+            border-radius: 15px; /* More rounded corners */
+            padding: 2.5rem; /* More padding */
+            box-shadow: 0 6px 25px var(--shadow-primary);
             display: flex;
             flex-direction: column;
-            border: 1px solid transparent; /* For glow effect */
-            transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease, border-color 0.3s ease;
+            border: 2px solid transparent; /* For glow effect */
+            transition: background-color 0.5s ease, box-shadow 0.5s ease, transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s ease;
         }
 
         .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px var(--shadow-primary), 0 0 25px var(--glow-color);
-            border-color: var(--glow-color);
+            transform: translateY(-8px); /* More pronounced lift */
+            box-shadow: 0 12px 40px var(--shadow-primary), 0 0 35px var(--glow-color); /* Stronger glow and shadow */
+            border-color: var(--glow-color); /* Highlight border on hover */
         }
 
         .tool-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.8rem; /* Larger tool title */
+            margin-bottom: 1.8rem;
             color: var(--text-color);
-            text-shadow: 0 0 8px var(--glow-color);
-            transition: color 0.4s ease, text-shadow 0.4s ease;
+            text-shadow: 0 0 10px rgba(0, 230, 255, 0.4); /* Subtle tool title glow */
+            transition: color 0.5s ease, text-shadow 0.5s ease;
+            font-weight: 700;
         }
 
         .tool-description {
-            font-size: 0.95rem;
+            font-size: 1rem; /* Slightly larger description */
             color: var(--secondary-text-color);
-            margin-bottom: 1.5rem;
-            flex-grow: 1; /* Pushes inputs to bottom */
-            transition: color 0.4s ease;
+            margin-bottom: 2rem; /* More space */
+            flex-grow: 1;
+            transition: color 0.5s ease;
+            font-weight: 300;
         }
 
         .tool-card label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
             color: var(--secondary-text-color);
             font-size: 0.95rem;
-            transition: color 0.4s ease;
+            transition: color 0.5s ease;
         }
 
         .tool-card input[type="text"],
@@ -315,40 +341,53 @@
         .tool-card textarea,
         .tool-card select {
             width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
+            padding: 1rem 1.2rem; /* More generous padding */
+            margin-bottom: 1.2rem;
             border: 1px solid var(--input-border);
-            border-radius: 6px;
+            border-radius: 8px; /* More rounded inputs */
             background-color: var(--input-bg);
             color: var(--input-text);
             font-size: 1rem;
-            transition: background-color 0.4s ease, color 0.4s ease, border-color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .tool-card input[type="color"] {
-             height: 44px; /* Matches input height */
+             height: 48px; /* Matches input height after padding */
+             padding: 0.5rem; /* Adjust padding for color picker to fit */
+        }
+
+        .tool-card input:focus,
+        .tool-card textarea:focus,
+        .tool-card select:focus {
+            outline: none;
+            border-color: var(--glow-color);
+            box-shadow: 0 0 0 3px rgba(0, 230, 255, 0.2); /* Focus glow */
         }
 
         .tool-card input::placeholder,
         .tool-card textarea::placeholder {
             color: var(--placeholder-color);
+            opacity: 0.8;
         }
 
         .tool-card textarea {
+            min-height: 120px; /* Taller textareas */
             resize: vertical;
-            min-height: 100px;
         }
 
         .tool-card button {
             background-color: var(--cta-button-bg);
             color: var(--cta-button-text);
-            padding: 0.8rem 1.2rem;
+            padding: 0.9rem 1.5rem; /* Larger buttons */
             border: none;
-            border-radius: 6px;
-            font-size: 1rem;
+            border-radius: 8px; /* Consistent button radius */
+            font-size: 1.05rem;
+            font-weight: 600;
             cursor: pointer;
-            margin-top: 0.5rem;
-            margin-right: 0.5rem;
+            margin-top: 0.8rem;
+            margin-right: 0.8rem; /* More spacing */
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            letter-spacing: 0.02em;
         }
 
         .tool-card button:last-child {
@@ -356,81 +395,98 @@
         }
 
         .tool-card button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px var(--cta-button-shadow);
+            transform: translateY(-3px); /* Slightly more lift */
+            box-shadow: 0 5px 15px var(--cta-button-shadow); /* Subtle glow on hover */
         }
 
         .tool-card .output-area {
             background-color: var(--code-bg);
-            border-radius: 6px;
-            padding: 1rem;
-            margin-top: 1rem;
-            font-size: 0.9rem;
+            border-radius: 8px;
+            padding: 1.2rem; /* More padding */
+            margin-top: 1.5rem; /* More margin */
+            font-size: 0.95rem;
             color: var(--code-text);
             word-break: break-all;
             white-space: pre-wrap;
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
             border: 1px solid var(--input-border);
-            min-height: 50px;
+            min-height: 60px; /* Taller default output */
             overflow-x: auto;
-            transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+            position: relative; /* For empty pseudo-element */
         }
 
         .tool-card .output-area:empty::before {
             content: 'Output will appear here...';
             color: var(--placeholder-color);
             font-style: italic;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
         }
 
         .copy-button {
-            margin-top: 1rem;
-            background-color: #28a745;
+            margin-top: 1.2rem; /* More spacing below output */
+            background-color: #28a745; /* Green for copy */
         }
         .copy-button:hover {
              background-color: #218838;
-             box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+             box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
         }
 
         /* Specific tool styles */
         #text-to-speech-card button {
             display: inline-block;
-            margin-right: 10px;
+            margin-right: 15px;
         }
         #color-picker-card .color-display {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 1rem;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
         }
         #color-picker-card .color-box {
-            width: 30px;
-            height: 30px;
-            border: 1px solid var(--input-border);
-            border-radius: 4px;
-            transition: border-color 0.4s ease;
+            width: 40px; /* Larger color swatch */
+            height: 40px;
+            border: 2px solid var(--input-border);
+            border-radius: 6px;
+            transition: border-color 0.5s ease;
         }
         #json-formatter-card .error-message {
-            color: #dc3545;
+            color: var(--error-color); /* Themed error color */
             font-size: 0.9rem;
-            margin-top: -0.5rem;
-            margin-bottom: 0.5rem;
+            margin-top: -0.8rem; /* Close to input */
+            margin-bottom: 1rem;
+            font-weight: 500;
         }
         .read-time-output, .word-char-output, .age-output, .timer-output {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--glow-color);
-            margin-top: 1rem;
+            font-size: 1.4rem; /* Larger output for these */
+            font-weight: 700;
+            color: var(--glow-color); /* Glow color for these */
+            margin-top: 1.5rem;
             text-align: center;
+            text-shadow: 0 0 8px rgba(0, 230, 255, 0.3); /* Subtle glow */
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             color: var(--secondary-text-color);
             background-color: var(--card-bg-primary);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: var(--glow-color);
+            font-weight: 500;
+        }
+        .footer a:hover {
+            text-decoration: underline;
         }
 
         /* Mobile Menu */
@@ -442,22 +498,24 @@
             top: 80px; /* Below header */
             left: 0;
             width: 100%;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             box-shadow: 0 8px 30px var(--shadow-primary);
             z-index: 999;
             transform: translateY(-100%);
             transition: transform 0.4s ease-out;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         .mobile-nav-menu.active {
             transform: translateY(0);
         }
         .mobile-nav-menu a {
             padding: 1rem 2rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             text-align: center;
             width: 100%;
             display: block;
             color: var(--text-color);
+            transition: background-color 0.3s ease;
         }
         .mobile-nav-menu a:hover {
             background-color: var(--card-bg-secondary);
@@ -465,24 +523,53 @@
 
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
             .tool-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             }
             .nav-links {
-                gap: 1.5rem;
+                gap: 2rem;
             }
             .header .brand-title {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
+            }
+            .hero-section h1 {
+                font-size: 3.2rem;
+            }
+            .hero-section p {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .tool-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .header {
+                padding: 1rem 2rem;
+            }
+            .hero-section h1 {
+                font-size: 2.8rem;
+            }
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+            .cta-button {
+                padding: 1rem 2.5rem;
+                font-size: 1.2rem;
+            }
+            .tools-section h2 {
+                font-size: 2.5rem;
+                margin-bottom: 3rem;
             }
         }
 
         @media (max-width: 768px) {
             .header {
-                padding: 1rem 1.5rem;
+                padding: 0.8rem 1.5rem;
             }
             .header .brand-title {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
             .nav-links {
                 display: none;
@@ -492,63 +579,93 @@
             }
             .mobile-nav-menu {
                 display: flex;
+                top: 70px; /* Adjust if header height changes */
             }
             .hero-section {
-                min-height: 80vh;
-                padding: 1.5rem;
+                min-height: 70vh;
+                padding: 2rem 1.5rem;
+            }
+            .hero-icon {
+                width: 80px;
+                height: 80px;
             }
             .hero-section h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             .hero-section p {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
             }
             .cta-button {
-                padding: 0.8rem 2rem;
+                padding: 0.9rem 2.2rem;
                 font-size: 1.1rem;
             }
             .tools-section {
                 padding: 3rem 1.5rem;
             }
             .tools-section h2 {
-                font-size: 2.2rem;
-                margin-bottom: 2rem;
+                font-size: 2rem;
+                margin-bottom: 2.5rem;
             }
             .tool-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 2rem;
             }
             .tool-card {
-                padding: 1.5rem;
+                padding: 2rem;
             }
             .tool-card h3 {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
             .tool-description {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+            .tool-card input, .tool-card textarea, .tool-card select {
+                padding: 0.9rem 1rem;
+            }
+            .tool-card button {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.95rem;
+            }
+            #text-to-speech-card button {
+                margin-right: 10px;
+                margin-bottom: 10px; /* Stack buttons if needed */
             }
         }
 
         @media (max-width: 480px) {
             .header {
-                padding: 0.8rem 1rem;
+                padding: 0.7rem 1rem;
             }
             .header .brand-title {
-                font-size: 1.3rem;
-            }
-            .theme-toggle-btn {
                 font-size: 1.4rem;
             }
-            .hamburger {
-                font-size: 1.8rem;
+            .theme-toggle-btn {
+                font-size: 1.5rem;
+                padding: 0.4rem;
             }
-            .hero-section h1 {
+            .hamburger {
                 font-size: 2rem;
             }
+            .mobile-nav-menu {
+                top: 60px; /* Adjust for smaller header */
+            }
+            .hero-section {
+                padding: 1.5rem 1rem;
+            }
+            .hero-icon {
+                width: 70px;
+                height: 70px;
+            }
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
             .hero-section p {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
             .cta-button {
-                padding: 0.7rem 1.8rem;
+                padding: 0.8rem 1.8rem;
                 font-size: 1rem;
             }
             .tools-section {
@@ -558,9 +675,17 @@
                 font-size: 1.8rem;
             }
             .tool-card {
-                padding: 1.2rem;
+                padding: 1.5rem;
             }
             .tool-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 1.2rem;
+            }
+            .tool-description {
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+            }
+            .read-time-output, .word-char-output, .age-output, .timer-output {
                 font-size: 1.2rem;
             }
         }
@@ -573,8 +698,8 @@
         <nav class="nav-links">
             <a href="#hero">Home</a>
             <a href="#tools">Tools</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#about-footer">About</a>
+            <a href="#contact-footer">Contact</a>
         </nav>
         <button id="theme-toggle" class="theme-toggle-btn">
             <span id="theme-icon">☀️</span>
@@ -585,8 +710,8 @@
     <div class="mobile-nav-menu" id="mobile-menu">
         <a href="#hero">Home</a>
         <a href="#tools">Tools</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#about-footer">About</a>
+        <a href="#contact-footer">Contact</a>
     </div>
 
     <main>
@@ -830,7 +955,7 @@ This is **bold** and *italic* text."></textarea>
                     <h3>JSON Formatter</h3>
                     <p class="tool-description">Format and beautify your JSON data for better readability. Essential for developers and anyone working with structured data APIs.</p>
                     <label for="json-input">Paste JSON data:</label>
-                    <textarea id="json-input" placeholder='{"name":"Webtools", "version":1.0}'></textarea>
+                    <textarea id="json-input" placeholder='{"name":"Webtools", "version":1.0, "data":{"item1":10,"item2":"abc"}}'></textarea>
                     <div class="error-message" id="json-error-message"></div>
                     <button onclick="formatJson()">Format JSON</button>
                     <div class="output-area" id="json-output"></div>
@@ -842,10 +967,10 @@ This is **bold** and *italic* text."></textarea>
                     <h3>Color Picker</h3>
                     <p class="tool-description">Select a color using a visual picker and get its HEX and RGB values. Great for designers and front-end developers.</p>
                     <label for="color-input">Choose a color:</label>
-                    <input type="color" id="color-input" value="#007bff">
+                    <input type="color" id="color-input" value="#00E6FF">
                     <div class="color-display">
-                        <div class="color-box" id="color-box-display" style="background-color: #007bff;"></div>
-                        <div class="output-area" id="color-output">HEX: #007bff<br>RGB: rgb(0, 123, 255)</div>
+                        <div class="color-box" id="color-box-display" style="background-color: #00E6FF;"></div>
+                        <div class="output-area" id="color-output">HEX: #00E6FF<br>RGB: rgb(0, 230, 255)</div>
                     </div>
                 </div>
 
@@ -854,7 +979,7 @@ This is **bold** and *italic* text."></textarea>
                     <h3>Text to Speech (TTS)</h3>
                     <p class="tool-description">Convert written text into spoken audio using your browser's Text-to-Speech capabilities. Useful for proofreading or accessibility.</p>
                     <label for="tts-text">Enter text to speak:</label>
-                    <textarea id="tts-text" placeholder="Hello, this is Webtools SEO Toolkit."></textarea>
+                    <textarea id="tts-text" placeholder="Hello, this is Webtools SEO Toolkit. It helps bloggers and marketers."></textarea>
                     <button onclick="speakText()">Speak</button>
                     <button onclick="stopSpeech()">Stop</button>
                 </div>
@@ -873,7 +998,7 @@ This is **bold** and *italic* text."></textarea>
                 <div class="tool-card" id="timer-stopwatch-card">
                     <h3>Timer / Stopwatch</h3>
                     <p class="tool-description">A simple timer or stopwatch to track elapsed time. Useful for productivity and content creation tasks.</p>
-                    <div class="output-area timer-output" id="timer-output">00:00:00</div>
+                    <div class="output-area timer-output" id="timer-output">00:00:00.00</div>
                     <button onclick="startTimer()">Start</button>
                     <button onclick="stopTimer()">Stop</button>
                     <button onclick="resetTimer()">Reset</button>
@@ -884,7 +1009,7 @@ This is **bold** and *italic* text."></textarea>
     </main>
 
     <footer class="footer">
-        <p id="about">© <span id="current-year"></span> Webtools – SEO Toolkit. All rights reserved. <br> Powered by Prompt Minds. | <a href="#" id="contact">Contact Us</a></p>
+        <p id="about-footer">© <span id="current-year"></span> Webtools – SEO Toolkit. All rights reserved. <br> Powered by Prompt Minds. | <a href="#" id="contact-footer">Contact Us</a></p>
     </footer>
 
     <script>
@@ -944,7 +1069,9 @@ This is **bold** and *italic* text."></textarea>
          */
         function copyToClipboard(elementId) {
             const outputElement = document.getElementById(elementId);
-            if (!outputElement || outputElement.textContent.trim() === '' || outputElement.textContent.trim() === 'Output will appear here...') {
+            const placeholderText = 'Output will appear here...';
+
+            if (!outputElement || outputElement.textContent.trim() === '' || outputElement.textContent.trim() === placeholderText) {
                 return; // Nothing to copy
             }
 
@@ -952,7 +1079,8 @@ This is **bold** and *italic* text."></textarea>
             navigator.clipboard.writeText(textToCopy).then(() => {
                 // Find the copy button associated with this output area
                 const card = outputElement.closest('.tool-card');
-                const copyButton = card.querySelector(`.copy-button[onclick="copyToClipboard('${elementId}')"]`);
+                // Select the button more robustly by class within the card
+                const copyButton = card.querySelector('.copy-button');
 
                 if (copyButton) {
                     const originalText = copyButton.textContent;
@@ -988,7 +1116,7 @@ This is **bold** and *italic* text."></textarea>
             if (keywords) {
                 metaHtml += `<meta name="keywords" content="${escapeHtml(keywords)}">\n`;
             }
-            metaHtml += `<!-- Open Graph / Facebook -->\n`;
+            metaHtml += `\n<!-- Open Graph / Facebook -->\n`;
             metaHtml += `<meta property="og:type" content="website">\n`;
             if (title) {
                 metaHtml += `<meta property="og:title" content="${escapeHtml(title)}">\n`;
@@ -996,14 +1124,19 @@ This is **bold** and *italic* text."></textarea>
             if (description) {
                 metaHtml += `<meta property="og:description" content="${escapeHtml(description)}">\n`;
             }
-            metaHtml += `<!-- Twitter -->\n`;
+            metaHtml += `<meta property="og:url" content="https://www.example.com/your-page">\n`; // Example URL
+            metaHtml += `<meta property="og:image" content="https://www.example.com/your-image.jpg">\n`; // Example Image
+
+            metaHtml += `\n<!-- Twitter -->\n`;
             metaHtml += `<meta name="twitter:card" content="summary_large_image">\n`;
             if (title) {
                 metaHtml += `<meta name="twitter:title" content="${escapeHtml(title)}">\n`;
             }
             if (description) {
-                metaHtml += `<meta name="twitter:description" content="${escapeHtml(description)}">`;
+                metaHtml += `<meta name="twitter:description" content="${escapeHtml(description)}">\n`;
             }
+            metaHtml += `<meta name="twitter:image" content="https://www.example.com/your-image.jpg">`; // Example Image
+
 
             output.innerHTML = metaHtml;
         }
@@ -1074,6 +1207,7 @@ This is **bold** and *italic* text."></textarea>
                     }
                 });
             }
+            robotsTxtContent += `\nSitemap: https://www.example.com/sitemap.xml`; // Example Sitemap inclusion
             output.textContent = robotsTxtContent;
         }
 
@@ -1106,20 +1240,30 @@ This is **bold** and *italic* text."></textarea>
       <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
       <priority>0.8</priority>
    </url>
+   <!-- Add more URLs as needed -->
 </urlset>`;
             output.innerHTML = sitemapContent;
         }
 
         // 5. Title & Description Analyzer
+        const analyzerTitle = document.getElementById('analyzer-title');
+        const analyzerDescription = document.getElementById('analyzer-description');
+
+        analyzerTitle.addEventListener('input', analyzeTitleDescription);
+        analyzerDescription.addEventListener('input', analyzeTitleDescription);
+
         function analyzeTitleDescription() {
-            const title = document.getElementById('analyzer-title').value;
-            const description = document.getElementById('analyzer-description').value;
+            const title = analyzerTitle.value;
+            const description = analyzerDescription.value;
             const titleOutput = document.getElementById('analyzer-title-output');
             const descOutput = document.getElementById('analyzer-description-output');
 
             titleOutput.textContent = `Characters: ${title.length} (Recommended: 50-60)`;
             descOutput.textContent = `Characters: ${description.length} (Recommended: 150-160)`;
         }
+        // Initial call to update on load
+        document.addEventListener('DOMContentLoaded', analyzeTitleDescription);
+
 
         // 6. URL Encoder/Decoder
         function encodeURL() {
@@ -1185,10 +1329,13 @@ This is **bold** and *italic* text."></textarea>
             }
 
             let redirectCode = '';
+            const oldPath = new URL(oldUrl, 'http://dummy.com').pathname; // Extract path
+            const newPath = new URL(newUrl, 'http://dummy.com').pathname;
+
             if (redirectType === '301') {
-                redirectCode = `# Permanent Redirect (301) for .htaccess\nRedirect 301 ${oldUrl} ${newUrl}\n\n# Nginx permanent redirect\nrewrite ^${oldUrl}$ ${newUrl} permanent;`;
+                redirectCode = `# Permanent Redirect (301) for .htaccess\nRedirect 301 ${oldPath} ${newUrl}\n\n# Nginx permanent redirect\nrewrite ^${oldPath}$ ${newUrl} permanent;`;
             } else { // 302
-                redirectCode = `# Temporary Redirect (302) for .htaccess\nRedirect 302 ${oldUrl} ${newUrl}\n\n# Nginx temporary redirect\nrewrite ^${oldUrl}$ ${newUrl} redirect;`;
+                redirectCode = `# Temporary Redirect (302) for .htaccess\nRedirect 302 ${oldPath} ${newUrl}\n\n# Nginx temporary redirect\nrewrite ^${oldPath}$ ${newUrl} redirect;`;
             }
             output.textContent = redirectCode;
         }
@@ -1221,7 +1368,10 @@ This is **bold** and *italic* text."></textarea>
                 `The Future of ${topic}: Trends to Watch`,
                 `How to Get Started with ${topic} Today`,
                 `Common Mistakes to Avoid in ${topic}`,
-                `Top 5 Tools for Effective ${topic}`
+                `Top 5 Tools for Effective ${topic}`,
+                `Mastering ${topic}: From Zero to Hero`,
+                `The Secret to Boosting Your ${topic} Game`,
+                `Revolutionize Your Workflow with ${topic}`
             ];
 
             if (topic) {
@@ -1247,7 +1397,12 @@ This is **bold** and *italic* text."></textarea>
                 "The Power of Storytelling in Content Creation",
                 "Maximizing Blog Traffic with Social Media",
                 "Email Marketing Essentials for Bloggers",
-                "Monetizing Your Blog: Beyond AdSense"
+                "Monetizing Your Blog: Beyond AdSense",
+                "Improving User Experience (UX) for SEO",
+                "The Role of AI in Future SEO",
+                "Local SEO Strategies to Drive Foot Traffic",
+                "Video SEO: Optimizing for YouTube and Beyond",
+                "Podcast Marketing: Reaching New Audiences"
             ];
 
             let ideas = [];
@@ -1258,7 +1413,8 @@ This is **bold** and *italic* text."></textarea>
                 ideas.push(`Beginner's Guide to ${seed}`);
                 ideas.push(`Case Study: How ${seed} Transformed a Business`);
                 ideas.push(`Future Trends in ${seed}`);
-                // Add some general topics to ensure variety
+                ideas.push(`Common Pitfalls in ${seed} and How to Avoid Them`);
+                // Add some random general topics to ensure variety
                 ideas = ideas.concat(commonTopics.sort(() => 0.5 - Math.random()).slice(0, 3));
             } else {
                 ideas = commonTopics.sort(() => 0.5 - Math.random()).slice(0, 5); // 5 random general topics
@@ -1284,6 +1440,8 @@ This is **bold** and *italic* text."></textarea>
             const minutes = Math.ceil(wordCount / wordsPerMinute);
             output.textContent = `${minutes} minute${minutes === 1 ? '' : 's'} read`;
         }
+        document.getElementById('read-time-text').addEventListener('input', estimateReadTime);
+
 
         // 14. Word & Character Counter
         const wordCharTextarea = document.getElementById('word-char-text');
@@ -1299,6 +1457,8 @@ This is **bold** and *italic* text."></textarea>
 
             output.textContent = `Words: ${wordCount} | Characters: ${charCount}`;
         }
+        document.addEventListener('DOMContentLoaded', countWordsAndChars);
+
 
         // 15. HTML Tag Cleaner
         function cleanHtmlTags() {
@@ -1327,7 +1487,14 @@ This is **bold** and *italic* text."></textarea>
 
             let html = markdown;
 
-            // Basic headings (H1-H3)
+            // Handle paragraphs first (replace double newlines with <p> and close tag, then single with <br>)
+            html = html.replace(/\n\n/g, '</p><p>');
+            html = `<p>${html}</p>`;
+
+            // Basic headings (H1-H6)
+            html = html.replace(/^######\s*(.*)$/gm, '<h6>$1</h6>');
+            html = html.replace(/^#####\s*(.*)$/gm, '<h5>$1</h5>');
+            html = html.replace(/^####\s*(.*)$/gm, '<h4>$1</h4>');
             html = html.replace(/^###\s*(.*)$/gm, '<h3>$1</h3>');
             html = html.replace(/^##\s*(.*)$/gm, '<h2>$1</h2>');
             html = html.replace(/^#\s*(.*)$/gm, '<h1>$1</h1>');
@@ -1340,8 +1507,21 @@ This is **bold** and *italic* text."></textarea>
             html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
             html = html.replace(/_(.*?)_/g, '<em>$1</em>');
 
-            // Line breaks
-            html = html.replace(/\n/g, '<br>');
+            // Blockquotes
+            html = html.replace(/^>\s*(.*)$/gm, '<blockquote>$1</blockquote>');
+
+            // Lists (simple unordered)
+            html = html.replace(/^\s*[\-\*]\s*(.*)$/gm, '<li>$1</li>');
+            if (html.includes('<li>')) {
+                html = `<ul>${html}</ul>`;
+            }
+
+            // Code blocks (simple, multi-line)
+            html = html.replace(/```(.*?)```/gs, '<pre><code>$1</code></pre>');
+            html = html.replace(/`(.*?)`/g, '<code>$1</code>');
+
+            // Links (simple [text](url))
+            html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
 
             output.innerHTML = html;
         }
@@ -1366,6 +1546,12 @@ This is **bold** and *italic* text."></textarea>
                     break;
                 case 'titlecase':
                     formattedText = text.toLowerCase().split(' ').map((word) => {
+                        if (word.length === 0) return '';
+                        // Don't capitalize common small words (a, an, the, in, on, at, for, and, or, but, by, of, to, with)
+                        const smallWords = new Set(['a', 'an', 'the', 'in', 'on', 'at', 'for', 'and', 'or', 'but', 'by', 'of', 'to', 'with']);
+                        if (smallWords.has(word) && word !== text.toLowerCase().split(' ')[0]) { // Don't capitalize first word if it's small
+                            return word;
+                        }
                         return (word.charAt(0).toUpperCase() + word.slice(1));
                     }).join(' ');
                     break;
@@ -1378,22 +1564,27 @@ This is **bold** and *italic* text."></textarea>
             const paragraphs = parseInt(document.getElementById('lorem-paragraphs').value, 10);
             const output = document.getElementById('lorem-output');
 
-            const loremText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
             const loremParagraphs = [
-                loremText,
+                `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
                 `Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?`,
                 `At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.`,
-                `Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.`
+                `Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.`,
+                `Duis dolor nisl, pulvinar sit amet bibendum in, varius id nisl. Vivamus semper, purus sit amet lacinia dictum, magna lectus volutpat dolor, non ullamcorper lectus felis vel justo. Nunc eget nulla turpis. Nullam ultrices odio et dolor consectetur, nec euismod ipsum fermentum. Nulla facilisi. Sed malesuada, ante sed posuere semper, justo purus laoreet orci, in feugiat arcu nisl eget nulla.`,
+                `Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec dictum, erat id semper posuere, ligula justo tristique dolor, in efficitur massa risus quis lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.`,
+                `Curabitur non elit vel arcu pharetra posuere in sit amet ex. Nam nec justo lectus. Sed in tortor sed est volutpat rhoncus. In hac habitasse platea dictumst. Quisque dapibus, justo at fermentum luctus, orci justo finibus arcu, a dictum velit lorem vel velit.`,
+                `Phasellus et libero vitae enim rhoncus vestibulum. Maecenas tristique orci at tortor laoreet, in blandit sapien maximus. Etiam eu erat turpis. Donec non ex vitae ex vehicula finibus. Integer sed elit et ante consequat aliquet.`,
+                `Praesent sit amet purus in nulla fermentum bibendum. Ut eu orci a est lacinia faucibus. Fusce nec nisi a urna facilisis egestas. Aliquam erat volutpat. Nam scelerisque, sapien a efficitur convallis, leo dolor lacinia nulla, at varius magna justo nec ipsum.`,
+                `Cras varius erat ut leo euismod, ut hendrerit elit accumsan. Sed vel arcu scelerisque, commodo tellus vel, facilisis lectus. Praesent efficitur elit in purus congue, nec mollis neque fermentum. Etiam sed felis eu dui placerat tincidunt.`
             ];
 
-            if (isNaN(paragraphs) || paragraphs < 1) {
+            if (isNaN(paragraphs) || paragraphs < 1 || paragraphs > 10) {
                 output.textContent = 'Please enter a valid number of paragraphs (1-10).';
                 return;
             }
 
             let generatedText = '';
-            for (let i = 0; i < paragraphs && i < loremParagraphs.length; i++) {
-                generatedText += `<p>${loremParagraphs[i]}</p>`;
+            for (let i = 0; i < paragraphs; i++) {
+                generatedText += `<p>${loremParagraphs[i] || loremParagraphs[0]}</p>`; // Use default if out of range
             }
             output.innerHTML = generatedText;
         }
@@ -1444,7 +1635,7 @@ This is **bold** and *italic* text."></textarea>
                 g = parseInt(hexColor[2] + hexColor[2], 16);
                 b = parseInt(hexColor[3] + hexColor[3], 16);
             }
-            output.innerHTML = `HEX: ${hexColor}<br>RGB: rgb(${r}, ${g}, ${b})`;
+            output.innerHTML = `HEX: ${hexColor.toUpperCase()}<br>RGB: rgb(${r}, ${g}, ${b})`;
         }
         // Initial call to set up display on load
         document.addEventListener('DOMContentLoaded', updateColorDisplay);
@@ -1467,6 +1658,10 @@ This is **bold** and *italic* text."></textarea>
 
             utterance = new SpeechSynthesisUtterance(textToSpeak);
             utterance.lang = 'en-US'; // Set language
+
+            // Optional: You can list voices and set one
+            // const voices = synth.getVoices();
+            // utterance.voice = voices.find(voice => voice.name === 'Google US English'); // Example
 
             utterance.onerror = (event) => {
                 console.error('SpeechSynthesisUtterance.onerror', event);
@@ -1502,6 +1697,7 @@ This is **bold** and *italic* text."></textarea>
             }
             output.textContent = `You are ${age} years old.`;
         }
+        document.getElementById('birth-date').addEventListener('change', calculateAge); // Recalculate on date change
 
 
         // 23. Timer / Stopwatch
