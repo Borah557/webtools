@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdEarn - Telegram Web App</title>
+    <script src='//libtl.com/sdk.js' data-zone='9535156' data-sdk='show_9535156'></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #4facfe;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .main-content {
+            padding: 20px;
+        }
+        
+        .section {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .section h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+        }
+        
+        .progress-bar {
+            background: #f0f0f0;
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        
+        .timer {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #4facfe;
+            margin: 10px 0;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: #4facfe;
+        }
+        
+        .referral-link {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 14px;
+            word-break: break-all;
+            border: 2px dashed #4facfe;
+            margin: 10px 0;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .nav-tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            background: transparent;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tab.active {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-danger {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #4facfe;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .floating-action {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .floating-action:hover {
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+                min-height: 100vh;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 AdEarn</h1>
+            <p>Earn USDT by watching ads</p>
+            <div style="margin-top: 10px; font-size: 12px; opacity: 0.8;">
+                <span>Developed by </span>
+                <a href="https://t.me/saanvi341" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: underline;">@saanvi341</a>
+            </div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="totalPoints">0</div>
+                <div class="stat-label">Total Points</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="todayViews">0</div>
+                <div class="stat-label">Today's Views</div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showTab('earn')">Earn</button>
+                <button class="nav-tab" onclick="showTab('withdraw')">Withdraw</button>
+                <button class="nav-tab" onclick="showTab('referral')">Referral</button>
+            </div>
+            
+            <div id="earn" class="tab-content active">
+                <div class="section">
+                    <h2><span class="section-icon">📺</span>Watch Ads</h2>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="dailyProgress" style="width: 0%"></div>
+                    </div>
+                    <p style="text-align: center; margin: 10px 0; color: #666;">
+                        <span id="viewsCount">0</span> / 1000 views today
+                    </p>
+                    <div class="timer" id="nextAdTimer">Ready to watch!</div>
+                    <button class="btn" id="watchAdBtn" onclick="watchAd()">
+                        <span id="watchBtnText">Watch Ad (+10 points)</span>
+                    </button>
+                </div>
+                
+                <div class="section">
+                    <h2><span class="section-icon">🤖</span>Auto Mode</h2>
+                    <p style="color: #666; margin-bottom: 15px;">Automatically watch ads every 25 seconds</p>
+                    <button class="btn btn-secondary" id="autoModeBtn" onclick="toggleAutoMode()">
+                        Enable Auto Mode
+                    </button>
+                </div>
+            </div>
+            
+            <div id="withdraw" class="tab-content">
+                <div class="section">
+                    <h2><span class="section-icon">💳</span>Withdraw USDT</h2>
+                    <p style="color: #666; margin-bottom: 15px;">Minimum: 5000 points = 1 USDT (TRC20)</p>
+                    
+                    <div class="input-group">
+                        <label>USDT Amount</label>
+                        <input type="number" id="usdtAmount" placeholder="Enter USDT amount" min="1" step="0.01">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>TRC20 Wallet Address</label>
+                        <input type="text" id="walletAddress" placeholder="Enter your TRC20 wallet address">
+                    </div>
+                    
+                    <p style="color: #666; font-size: 14px; margin-bottom: 15px;">
+                        Required points: <span id="requiredPoints">0</span>
+                    </p>
+                    
+                    <button class="btn" onclick="withdrawUSDT()">Withdraw USDT</button>
+                </div>
+            </div>
+            
+            <div id="referral" class="tab-content">
+                <div class="section">
+                    <h2><span class="section-icon">👥</span>Referral Program</h2>
+                    <p style="color: #666; margin-bottom: 15px;">Earn 25% commission from referrals</p>
+                    
+                    <div class="stat-card" style="margin-bottom: 15px;">
+                        <div class="stat-value" id="referralEarnings">0</div>
+                        <div class="stat-label">Referral Earnings</div>
+                    </div>
+                    
+                    <div class="stat-card" style="margin-bottom: 15px;">
+                        <div class="stat-value" id="totalReferrals">0</div>
+                        <div class="stat-label">Total Referrals</div>
+                    </div>
+                    
+                    <label style="font-weight: 600; margin-bottom: 10px; display: block;">Your Referral Link:</label>
+                    <div class="referral-link" id="referralLink">
+                        https://t.me/your_bot?ref=USER123
+                    </div>
+                    <button class="btn btn-secondary" onclick="copyReferralLink()">Copy Link</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="floating-action" onclick="showNotification('💰 Keep watching ads to earn more points!')">
+        💰
+    </div>
+    
+    <script>
+        // User data management
+        let userData = {
+            id: 'USER_' + Math.random().toString(36).substr(2, 9),
+            points: 0,
+            todayViews: 0,
+            totalReferrals: 0,
+            referralEarnings: 0,
+            lastViewDate: new Date().toDateString(),
+            referredBy: null,
+            autoMode: false
+        };
+        
+        // Load user data
+        function loadUserData() {
+            const saved = localStorage.getItem('adEarnUserData');
+            if (saved) {
+                const parsedData = JSON.parse(saved);
+                // Reset daily views if it's a new day
+                if (parsedData.lastViewDate !== new Date().toDateString()) {
+                    parsedData.todayViews = 0;
+                    parsedData.lastViewDate = new Date().toDateString();
+                }
+                userData = { ...userData, ...parsedData };
+            }
+            
+            // Check for referral parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const refId = urlParams.get('ref');
+            if (refId && !userData.referredBy) {
+                userData.referredBy = refId;
+                saveUserData();
+            }
+            
+            updateUI();
+        }
+        
+        // Save user data
+        function saveUserData() {
+            localStorage.setItem('adEarnUserData', JSON.stringify(userData));
+        }
+        
+        // Update UI elements
+        function updateUI() {
+            document.getElementById('totalPoints').textContent = userData.points.toLocaleString();
+            document.getElementById('todayViews').textContent = userData.todayViews;
+            document.getElementById('viewsCount').textContent = userData.todayViews;
+            document.getElementById('referralEarnings').textContent = userData.referralEarnings;
+            document.getElementById('totalReferrals').textContent = userData.totalReferrals;
+            document.getElementById('referralLink').textContent = `https://t.me/your_bot?ref=${userData.id}`;
+            
+            // Update progress bar
+            const progress = (userData.todayViews / 1000) * 100;
+            document.getElementById('dailyProgress').style.width = progress + '%';
+            
+            // Update withdraw calculation
+            const usdtInput = document.getElementById('usdtAmount');
+            if (usdtInput && usdtInput.value) {
+                const requiredPoints = parseFloat(usdtInput.value) * 5000;
+                document.getElementById('requiredPoints').textContent = requiredPoints.toLocaleString();
+            }
+        }
+        
+        // Tab switching
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        // Watch ad function
+        let isWatchingAd = false;
+        let nextAdTimer = null;
+        
+        function watchAd() {
+            if (isWatchingAd || userData.todayViews >= 1000) {
+                return;
+            }
+            
+            isWatchingAd = true;
+            const watchBtn = document.getElementById('watchAdBtn');
+            const watchBtnText = document.getElementById('watchBtnText');
+            
+            watchBtn.disabled = true;
+            watchBtnText.innerHTML = '<span class="loading"></span> Loading ad...';
+            
+            // Show Monetag ad
+            if (typeof show_9535156 === 'function') {
+                show_9535156().then(() => {
+                    // User watched the ad successfully
+                    userData.points += 10;
+                    userData.todayViews += 1;
+                    userData.lastViewDate = new Date().toDateString();
+                    
+                    // Give commission to referrer
+                    if (userData.referredBy) {
+                        // In a real app, you would update the referrer's data on the server
+                        console.log(`Giving 2.5 points commission to ${userData.referredBy}`);
+                    }
+                    
+                    saveUserData();
+                    updateUI();
+                    
+                    showNotification('🎉 +10 points earned!');
+                    
+                    isWatchingAd = false;
+                    startCooldown();
+                }).catch(() => {
+                    // Ad failed to load or user didn't complete it
+                    isWatchingAd = false;
+                    watchBtn.disabled = false;
+                    watchBtnText.textContent = 'Watch Ad (+10 points)';
+                    showNotification('❌ Ad failed to load. Please try again.', 'error');
+                });
+            } else {
+                // Fallback for demo purposes
+                setTimeout(() => {
+                    userData.points += 10;
+                    userData.todayViews += 1;
+                    userData.lastViewDate = new Date().toDateString();
+                    
+                    saveUserData();
+                    updateUI();
+                    
+                    showNotification('🎉 +10 points earned!');
+                    
+                    isWatchingAd = false;
+                    startCooldown();
+                }, 2000);
+            }
+        }
+        
+        // Start cooldown timer
+        function startCooldown() {
+            let timeLeft = 25;
+            const watchBtn = document.getElementById('watchAdBtn');
+            const watchBtnText = document.getElementById('watchBtnText');
+            const timerElement = document.getElementById('nextAdTimer');
+            
+            watchBtn.disabled = true;
+            
+            const updateTimer = () => {
+                if (timeLeft > 0) {
+                    timerElement.textContent = `Next ad in ${timeLeft}s`;
+                    watchBtnText.textContent = `Wait ${timeLeft}s`;
+                    timeLeft--;
+                } else {
+                    timerElement.textContent = 'Ready to watch!';
+                    watchBtnText.textContent = 'Watch Ad (+10 points)';
+                    watchBtn.disabled = false;
+                    
+                    if (userData.todayViews >= 1000) {
+                        watchBtn.disabled = true;
+                        watchBtnText.textContent = 'Daily limit reached';
+                        timerElement.textContent = 'Come back tomorrow!';
+                    }
+                    
+                    // Auto-watch if auto mode is enabled
+                    if (userData.autoMode && userData.todayViews < 1000) {
+                        setTimeout(() => {
+                            watchAd();
+                        }, 1000);
+                    }
+                }
+            };
+            
+            updateTimer();
+            nextAdTimer = setInterval(updateTimer, 1000);
+        }
+        
+        // Auto mode toggle
+        function toggleAutoMode() {
+            userData.autoMode = !userData.autoMode;
+            const autoBtn = document.getElementById('autoModeBtn');
+            
+            if (userData.autoMode) {
+                autoBtn.textContent = 'Disable Auto Mode';
+                autoBtn.classList.remove('btn-secondary');
+                autoBtn.classList.add('btn-danger');
+                showNotification('🤖 Auto mode enabled!');
+            } else {
+                autoBtn.textContent = 'Enable Auto Mode';
+                autoBtn.classList.remove('btn-danger');
+                autoBtn.classList.add('btn-secondary');
+                showNotification('⏸️ Auto mode disabled');
+            }
+            
+            saveUserData();
+        }
+        
+        // USDT withdrawal
+        function withdrawUSDT() {
+            const amount = parseFloat(document.getElementById('usdtAmount').value);
+            const address = document.getElementById('walletAddress').value.trim();
+            
+            if (!amount || amount < 1) {
+                showNotification('❌ Please enter a valid USDT amount', 'error');
+                return;
+            }
+            
+            if (!address) {
+                showNotification('❌ Please enter your wallet address', 'error');
+                return;
+            }
+            
+            const requiredPoints = amount * 5000;
+            
+            if (userData.points < requiredPoints) {
+                showNotification(`❌ Insufficient points. You need ${requiredPoints.toLocaleString()} points`, 'error');
+                return;
+            }
+            
+            // Simulate withdrawal process
+            if (confirm(`Withdraw ${amount} USDT for ${requiredPoints.toLocaleString()} points?`)) {
+                userData.points -= requiredPoints;
+                saveUserData();
+                updateUI();
+                
+                showNotification(`🎉 Withdrawal request submitted! ${amount} USDT will be sent to your wallet within 24 hours.`);
+                
+                // Clear form
+                document.getElementById('usdtAmount').value = '';
+                document.getElementById('walletAddress').value = '';
+            }
+        }
+        
+        // Copy referral link
+        function copyReferralLink() {
+            const link = document.getElementById('referralLink').textContent;
+            navigator.clipboard.writeText(link).then(() => {
+                showNotification('📋 Referral link copied!');
+            }).catch(() => {
+                showNotification('❌ Failed to copy link', 'error');
+            });
+        }
+        
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type}`;
+            notification.textContent = message;
+            notification.style.position = 'fixed';
+            notification.style.top = '20px';
+            notification.style.left = '50%';
+            notification.style.transform = 'translateX(-50%)';
+            notification.style.zIndex = '9999';
+            notification.style.maxWidth = '300px';
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Update required points calculation
+        document.getElementById('usdtAmount').addEventListener('input', function() {
+            const amount = parseFloat(this.value) || 0;
+            const requiredPoints = amount * 5000;
+            document.getElementById('requiredPoints').textContent = requiredPoints.toLocaleString();
+        });
+        
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserData();
+            
+            // Start with initial cooldown if user has viewed ads today
+            if (userData.todayViews > 0) {
+                startCooldown();
+            }
+        });
+    </script>
+</body>
+</html>
