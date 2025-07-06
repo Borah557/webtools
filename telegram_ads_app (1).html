@@ -442,7 +442,7 @@
                     
                     <label style="font-weight: 600; margin-bottom: 10px; display: block;">Your Referral Link:</label>
                     <div class="referral-link" id="referralLink">
-                        https://t.me/your_bot?ref=USER123
+                        https://t.me/adsearns_bot?ref=USER123
                     </div>
                     <button class="btn btn-secondary" onclick="copyReferralLink()">Copy Link</button>
                 </div>
@@ -503,7 +503,7 @@
             document.getElementById('viewsCount').textContent = userData.todayViews;
             document.getElementById('referralEarnings').textContent = userData.referralEarnings;
             document.getElementById('totalReferrals').textContent = userData.totalReferrals;
-            document.getElementById('referralLink').textContent = `https://t.me/your_bot?ref=${userData.id}`;
+            document.getElementById('referralLink').textContent = `https://t.me/adsearns_bot?ref=${userData.id}`;
             
             // Update progress bar
             const progress = (userData.todayViews / 1000) * 100;
